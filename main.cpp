@@ -1,57 +1,64 @@
 #include <iostream>
 
 using namespace std;
-class linkedlist{
-    struct node{
-        int item;
-        node*next;
-        };
+const int Max_size=100;
+class stack{
+    int top;
+    int  item=[Max_size];
 public:
-     linkedlist(){
-         first=tail=NULL;
-         length=0;
-     }bool isEmpty()
-     {
-         if (first==NULL)
-            return true;
-
-         else
-            return false;
-
-         }void insertitem(int element){
-             node*newnode=new node;
-             newnode->item=element;
-             if(first==NULL)
-                {
-                    first=tail=newnode;
-                    newnode->next=NULL;
-             }
-             else
-             {
-               newnode->next=first;
-               fisrt=newnode;
-             }length++;
-
-
-         }void insertlast(int element)
-         {
-             node*newnode=new node;
-             newnode->item=element;
-             if(length==0){
-                first=tail=newnode;
-                newnode->next=NULL;
-             }else
-             {
-             tail->next=newnode;
-              newnode->next=NULL;
-              tail=newnode;
-             }
-         }
+     stack(){
+         top=-1;
      }
+void push(int element){
+    if (top>=Max_size-1){
+        cout<<"stack is full"<<endl;
+
+    }else{
+        top++;
+        item[top]=element;
+    }
+
+}bool isEmpty(){
+    if (top==-1)
+        return true;
+    else
+        return false;
+
+}
+void pop(){
+    if(isEmpty()){
+        cout<<"stack is empty"<<endl;
+
+    }else{
+        top--;
+
+    }
+}void gettop(int&element){
+    if(isEmpty()){
+        cout<<"stack is empty"<<endl;
+
+    }else{
+        gettop=item[top];
+
+
+    }
+}void print(){
+    for[int i=top;i>=0;i--]{
+        cout<<item[i]<<endl;
+    }
+
+}
+
+
+
 
 };
+
+
 int main()
 {
-
+   stack s;
+   s.push(5);
+   s.print();
     return 0;
 }
